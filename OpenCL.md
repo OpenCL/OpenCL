@@ -195,6 +195,67 @@ The execution model is the model that explains how the OpenCL framework really w
  
 # Getting Started
 
+## [CL-basic]()
+
+CL-basic is a C prototype to help you get started with creating your own simple OpenCL application. It has both simple host-code functions and a sample OpenCL kernel that you can reference to get started quick! In addition, this prototype can be compiled under both Windows and Linux-based systems thanks to the use of Cmake.
+
+Host-code functions can be found in:
+> cl_util.c
+> cl_util.h
+
+For getting platform and/or device information, the following functions are:-
+```
+void PrintPlatformName(cl_platform_id platform);
+void PrintDeviceName(cl_device_id device);
+int PrintOpenCLInfo();
+void SelectOpenCLPlatformAndDevice(cl_platform_id* pPlatform, cl_device_id* pDevice);
+```
+
+For creating and releasing an OpenCL Context, the following functions are:-
+```
+cl_context CreateOpenCLContext(cl_platform_id platform, cl_device_id device);
+void ReleaseOpenCLContext(cl_context *pContext);
+```
+
+For creating and releasing an OpenCL Queue, the following functions are:-
+```
+cl_command_queue CreateOpenCLQueue(cl_device_id device, cl_context context);
+void ReleaseOpenCLQueue(cl_command_queue *pQueue);
+```
+
+For creating and releasing an OpenCL Device Buffer, the following functions are:-
+```
+cl_mem CreateDeviceBuffer(cl_context context, size_t sizeInBytes);
+void ReleaseDeviceBuffer(cl_mem *pDeviceBuffer);
+```
+
+For copying data rom the host to device, or from the device to the host, the following functions are:-
+```
+void CopyHostToDevice(void* hostBuffer, cl_mem deviceBuffer, size_t sizeInBytes, cl_command_queue queue, cl_bool blocking);
+void CopyDeviceToHost(cl_mem deviceBuffer, void* hostBuffer, size_t sizeInBytes, cl_command_queue queue, cl_bool blocking);
+```
+
+For loading an OpenCL source from a file, creating and releasing the OpenCL program, the following functions are:-
+```
+char* LoadOpenCLSourceFromFile(char* filePath, size_t *pSourceLength);
+cl_program CreateAndBuildProgram(cl_context context, char* sourceCode, size_t sourceCodeLength);
+void ReleaseProgram(cl_program *pProgram);
+```
+
+For creating and releasing OpenCL Kernels, the following functions are:-
+```
+cl_kernel CreateKernel(cl_program program, char* kernelName);
+void ReleaseKernel(cl_kernel *pKernel);
+```
+
+An error function has also been prepared to make it easier to translate an error code returned by an OpenCL host function, and it can be used as below:-
+```
+clError = clEnqueueNDRangeKernel(queue, simpleFunctionKernel, workDim, NULL, globalWorkSize, localWorkSize, 0, NULL, NULL);
+CHECK_OCL_ERR("clEnqueueNDRangeKernel", clError);
+```
+
+Refer to *main.cpp* for a reference of how these host-code functions are used, and *OpenCLKernels.cl* for how the OpenCL kernel is written. 
+
 # Profiling
 
 # Bibliotgraphy
