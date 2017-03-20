@@ -124,6 +124,41 @@ clMathLibraries is a name for a group of math libraries with OpenCL backend. Als
 
 # <a name="S-specification"></a>Specification
 
+The OpenCL specification documents can be found on [the Khronos OpenCL Registry](https://www.khronos.org/registry/OpenCL/). They are a must-read for everyone who wants to dive into OpenCL programming and a great reference for the experienced OpenCL developer. 
+
+* OpenCL 2.2 (Provisional)
+    * [The OpenCL 2.2 Specification (API)](https://www.khronos.org/registry/OpenCL/specs/opencl-2.2.pdf)
+    * [The OpenCL C++ Language Specification](https://www.khronos.org/registry/OpenCL/specs/opencl-2.2-cplusplus.pdf)
+* OpenCL 2.1
+    * [The OpenCL 2.1 Specification (API)](https://www.khronos.org/registry/OpenCL/specs/opencl-2.1.pdf)
+    * [The OpenCL 2.0 C Language Specification](https://www.khronos.org/registry/OpenCL/specs/opencl-2.0-openclc.pdf)
+        * Note: OpenCL 2.1 uses OpenCL 2.0 C Language for OpenCL programs
+    * [Online Reference Pages](http://www.khronos.org/registry/cl/sdk/2.1/docs/man/xhtml/)
+* OpenCL 2.0 
+    * [The OpenCL 2.0 Specification (API)](https://www.khronos.org/registry/OpenCL/specs/opencl-2.0.pdf)
+    * [The OpenCL 2.0 C Language Specification](https://www.khronos.org/registry/OpenCL/specs/opencl-2.0-openclc.pdf)
+    * [Online Reference Pages](http://www.khronos.org/registry/cl/sdk/2.0/docs/man/xhtml/)
+* OpenCL 1.2
+    * [The OpenCL 1.2 Specification (API)](https://www.khronos.org/registry/OpenCL/specs/opencl-1.2.pdf)
+    * [The OpenCL 1.2 C Language Specification](https://www.khronos.org/registry/OpenCL/specs/opencl-1.2.pdf#page=197)
+    * [Online Reference Pages](http://www.khronos.org/registry/cl/sdk/1.2/docs/man/xhtml/)
+* All specifications and other documents regarding OpenCL standard, including including environment specifications, extensions specifications, and specifications for OpenCL 1.0 and 1.1, are available at https://www.khronos.org/registry/OpenCL.
+
+## The OpenCL Architecture
+
+The crucial part of The OpenCL Specification is the chapter about the OpenCL architecture. It is very important to understand at least its basic principles. Without this knowledge it is not possible neither to efficiently program using OpenCL nor to use it to its full capabilities. 
+
+The architecture is described by four models:
+
+* Platform Model
+* Memory Model
+* Programming Model
+* Execution Model
+
+The platform model describes in general how the OpenCL framework looks like and gives definitions of a host and an OpenCL device. The memory model explains different memory regions and memory objects introduced in OpenCL. More advanced sections about memory model present details of how shared virtual memory mechanism works, and presents memory consistency model and ordering rules. Since OpenCL 2.0 the programming model does not have its own section. It specifies that the OpenCL execution model supports both data parallel and task parallel programming models.
+
+The execution model is the model that explains how the OpenCL framework really works. It defines responsibilities of a host program, it says what is a command queue, what is a kernel, and it describes how an execution of an OpenCL kernel on a device works. In order to understand OpenCL you must carefully read and understand particularly this part of the specification, and know: how workloads are mapped onto devices, when synchronization happens, what is an index space.
+ 
 # Getting Started
 
 # Profiling
