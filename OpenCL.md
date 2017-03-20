@@ -39,18 +39,23 @@ As the compute-devices can do more in parallel and OpenCL is better in describin
 ## 5 questions on OpenCL
 
 **Q: Why is it so fast?**
+
 A: Because a lot of extra hands make less work, the hundreds of little processors on a graphics card being the extra hands. But cooperation with the main processor keeps being important to achieve maximum output.
 
 **Q: Does it work on any type of hardware?**
+
 A: As it is an open standard, it can work on any type of hardware that targets parallel execution. This can be a CPU, GPU, DSP or FPGA.
 
 **Q: How does it compare to OpenMP/MPI?**
+
 A: Where OpenMP and MPI try to split loops over threads/servers and is CPU-oriented, OpenCL focuses on getting threads being data-position aware and making use of processor-capabilities. There are several efforts to combine the two worlds.
 
 **Q: Does it replace C or C++?**
+
 A: No, it is an extension which integrates well with C, C++, Python, Java and more.
 
 **Q: How stable/mature is OpenCL?**
+
 A: Currently we have reached version 1.2 and is 3 years old. OpenCL has many predecessors and therefore quite older than 3 years.
 
 # Platforms and tools
