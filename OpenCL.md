@@ -32,25 +32,25 @@ OpenCL (trademark of Apple Computers Inc.) is an open, royalty-free industry sta
 
 OpenCL is an extension to existing languages. It makes it possible to specify a piece of code that is executed multiple times independently from each other. This code can run on various processors – not only the main one. Also there is an extension for vectors (float2, short4, int8, long16, etc), because modern processors have support for that.
 
-So for example you need to calculate Sin(x) of a large array of one million numbers. OpenCL detects which devices could compute this for you and gives some statistics of each device. You can pick the best device, or even several devices, and send the data to the device(s). Normally you would loop over the million numbers, but now you say something like: “Get me Sin(x) of each x in array A”. When finished, you take the data back from the device(s) and you are finished.
+>So for example you need to calculate Sin(x) of a large array of one million numbers. OpenCL detects which devices could compute this for you and gives some statistics of each device. You can pick the best device, or even several devices, and send the data to the device(s). Normally you would loop over the million numbers, but now you say something like: “Get me Sin(x) of each x in array A”. When finished, you take the data back from the device(s) and you are finished.
 
 As the compute-devices can do more in parallel and OpenCL is better in describing independent functions, the total execution time is much lower than conventional methods.
 
 ## 5 questions on OpenCL
 
-*Q: Why is it so fast?*
+**Q: Why is it so fast?**
 A: Because a lot of extra hands make less work, the hundreds of little processors on a graphics card being the extra hands. But cooperation with the main processor keeps being important to achieve maximum output.
 
-*Q: Does it work on any type of hardware?*
+**Q: Does it work on any type of hardware?**
 A: As it is an open standard, it can work on any type of hardware that targets parallel execution. This can be a CPU, GPU, DSP or FPGA.
 
-*Q: How does it compare to OpenMP/MPI?*
+**Q: How does it compare to OpenMP/MPI?**
 A: Where OpenMP and MPI try to split loops over threads/servers and is CPU-oriented, OpenCL focuses on getting threads being data-position aware and making use of processor-capabilities. There are several efforts to combine the two worlds.
 
-*Q: Does it replace C or C++?*
+**Q: Does it replace C or C++?**
 A: No, it is an extension which integrates well with C, C++, Python, Java and more.
 
-*Q: How stable/mature is OpenCL?*
+**Q: How stable/mature is OpenCL?**
 A: Currently we have reached version 1.2 and is 3 years old. OpenCL has many predecessors and therefore quite older than 3 years.
 
 # Platforms and tools
