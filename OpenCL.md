@@ -13,7 +13,7 @@ TODO: What is OpenCL.org initiative?
 
 1. [OpenCL Introduction](#S-introduction)
 2. [Platforms and tools](#S-platforms)
-   1. SDKs
+   1. [SDKs](#S-platforms-sdks)
    2. Debuggers
    3. Profilers
 3. [Libraries](#S-libraries)
@@ -22,7 +22,7 @@ TODO: What is OpenCL.org initiative?
 6. Profiling
 7. Bibliography
 
-# <a name="S-introduction"></a>OpenCL Introduction 
+# <a name="S-introduction"></a>OpenCL Introduction
 
 ## What is OpenCL?
 
@@ -59,6 +59,138 @@ OpenCL framework is great at exposing parallel nature of various compute-devices
 >First version of OpenCL was released in 2009. The latest version is OpenCL 2.1 from November 2015. The standard is being actively developed. Next version (2.2), which currently has provisional status, will include OpenCL C++ kernel language based C++14 standard.
 
 # <a name="S-platforms"></a>Platforms and tools
+
+## <a name="S-platforms-sdks"></a>SDKs And OpenCL Implementations
+
+### [AMD OpenCL™ Accelerated Parallel Processing - AMD APP SDK](http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/)
+
+AMD OpenCL™ Accelerated Parallel Processing (APP) technology is a set of advanced hardware and software technologies that enable AMD graphics processing cores (GPU), working in concert with the system’s x86 cores (CPU), to execute heterogeneously to accelerate many applications beyond just graphics.
+
+The SDK provides samples, documentation, and other materials.
+
+Supported hardware:
+ * AMD GPU
+ * AMD APU
+ * x86 CPU
+
+Supported software:
+ * Windows
+ * Linux
+
+Standards:
+ * OpenCL 2.0
+
+
+### [Intel® SDK for OpenCL™ Applications](https://software.intel.com/en-us/intel-opencl)
+
+The Intel® SDK for OpenCL™ Applications is a comprehensive development environment for developing and optimizing OpenCL™ applications on Intel® platforms.
+The SDK supports offloading compute-intensive parallel workloads to Intel® Graphics Technology using an advanced OpenCL™ kernel compiler, runtime debugger and code performance analyzer.
+
+OpenCL samples are available at https://software.intel.com/en-us/intel-opencl-support/code-samples
+
+Supported hardware:
+ * Intel® Graphics (GPU)
+ * Intel® Processors (CPU)
+ * Intel® Xeon Phi™ Coprocessors
+
+Supported software:
+ * Windows
+ * Linux
+ * Android (as a target only)
+
+Standards:
+ * OpenCL 2.0 & 1.2
+ * OpenCL 2.1 (CPU only) with SPIR and SPIR-V support
+
+
+### [NVIDIA® CUDA® Toolkit](https://developer.nvidia.com/cuda-toolkit)
+
+NVIDIA does not have a separate OpenCL SDK, but CUDA Toolkit contains OpenCL headers and shared libraries.
+OpenCL support is included in NVIDIA GPU drivers.
+
+OpenCL samples with source code for Windows, Linux and macOS are available at https://developer.nvidia.com/opencl
+
+Supported hardware:
+ * NVIDIA GPUs
+
+Supported software:
+ * Windows
+ * Linux
+ * macOS
+
+Standards:
+ * OpenCL 1.2
+ * beta-support of OpenCL 2.0
+
+
+### [Intel® FPGA SDK for OpenCL™](https://www.altera.com/products/design-software/embedded-software-developers/opencl/overview.html)
+
+The Intel FPGA SDK for OpenCL allows the easy implementation of applications onto FPGAs by abstracting away the complexities of FPGA design, allowing software programmers to write hardware-accelerated kernel functions in OpenCL C, an ANSI C-based language with additional OpenCL constructs.
+As part of our SDK we provide a suite of tools to further resemble the fast development flow of software programmers.
+
+Supported hardware:
+ * Altera FPGA
+
+Supported software:
+ * Windows
+ * Linux
+
+Standards:
+ * OpenCL 1.0 with support of SVM (OpenCL 2.0 feature) and image arrays (OpenCL 1.2 feature)
+
+
+### [Xilinx SDAccel™ development environment](http://www.xilinx.com/products/design-tools/software-zone/sdaccel.html)
+
+The SDAccel™ development environment for OpenCL™, C, and C++, enables up to 25X better performance/watt for data center application acceleration leveraging FPGAs.
+SDAccel, member of the SDx™ family, combines the industry's first architecturally optimizing compiler supporting any combination of OpenCL, C, and C++ kernels, along with libraries, development boards and the first complete CPU/GPU like development and run-time experience for FPGAs.
+
+
+### [Qualcomm® Adreno™ SDK](https://developer.qualcomm.com/software/adreno-gpu-sdk)
+
+Supported hardware:
+ * Adreno GPU (Snapdragon processor)
+
+Supported software:
+ * Windows
+ * Linux
+ * macOS
+ * Android (as a target only)
+
+Standards:
+ * OpenCL 2.1 (?)
+
+
+### [ARM Mali OpenCL SDK](https://developer.arm.com/products/software/mali-sdks/opencl)
+
+The Mali OpenCL SDK provides developers with a framework and series of samples for developing OpenCL 1.1 applications on ARM Mali based platforms such as the Mali-T600 and above family of GPUs.
+The samples cover a wide range of use cases that utilize the Mali GPU to achieve a significant improvement in performance when compared to running on the CPU alone.
+
+Supported hardware:
+ * ARM Mali based platforms such as the Mali-T600 family of GPUs
+
+Supported software:
+ * Windows
+ * Linux
+
+Standards:
+ * OpenCL 1.1
+
+
+### [AMD ROCm](https://radeonopencompute.github.io/)
+
+ROCm is Open Source Platform for GPU Computing.
+The ROCm Platform brings a rich foundation to advanced computing by seamlessly integrating the CPU and GPU with the goal of solving real-world problems.
+
+ROCm 1.4 includes developer preview of OpenCL support (not yet open source in this release).
+
+Supported hardware:
+ * AMD GPU (limited list, GFX7 and GFX8 only - Hawaii, Fiji, Polaris)
+
+Supported software:
+ * Linux (with a special ROCm kernel)
+
+Standards:
+ * OpenCL 2.0 compatible kernel language and OpenCL 1.2 compatible runtime
 
 # <a name="S-libraries"></a>Libraries
 
@@ -259,7 +391,7 @@ Refer to `main.cpp` for a reference of how these host-code functions are used, a
 
 # Profiling
 
-# Bibliotgraphy
+# Bibliography
 
 * [The Khronos OpenCL Working Group, The OpenCL Specification, Version: 2.1](https://www.khronos.org/registry/OpenCL/specs/opencl-2.1.pdf)
 * [The Khronos OpenCL Working Group, The OpenCL C Specification, Version: 2.0](https://www.khronos.org/registry/OpenCL/specs/opencl-2.0-openclc.pdf)
