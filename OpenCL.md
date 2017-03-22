@@ -26,15 +26,15 @@ TODO: What is OpenCL.org initiative?
 
 ## What is OpenCL?
 
-OpenCL (trademark of Apple Computers Inc.) is an open, royalty-free industry standard that makes much faster computations possible through parallel computing. The standard is controlled by non-profit standards organisation Khronos. By using this technique and graphics cards (GPUs) or extensions of modern processors you can for example convert a video in 20 minutes instead of 2 hours.
+OpenCL (trademark of Apple Computers Inc.) is an open, royalty-free industry standard that makes much faster computations possible through parallel computing. The standard is controlled by non-profit standards organisation Khronos. For example, by using this technology with graphics cards and modern multi-core processors it is possible to convert a video in 20 minutes instead of 2 hours, or analyze spectra of hundreds of thousands of stars in minutes instead of several hours.
 
 ## How does it work?
 
-OpenCL is an extension to existing languages. It makes it possible to specify a piece of code that is executed multiple times independently from each other. This code can run on various processors – not only the main one. Also there is an extension for vectors (float2, short4, int8, long16, etc), because modern processors have support for that.
+OpenCL is an extension to existing languages. It makes it possible to specify a piece of code that is executed multiple times independently from each other. This code can run on various processors – not only the main CPU. Also, OpenCL has built-in support for vector types (float2, short4, int8, long16, etc), and operations on those types can be mapped to vector extensions of modern CPUs (SSE, AVX).
 
->So for example you need to calculate Sin(x) of a large array of one million numbers. OpenCL detects which devices could compute this for you and gives some statistics of each device. You can pick the best device, or even several devices, and send the data to the device(s). Normally you would loop over the million numbers, but now you say something like: “Get me Sin(x) of each x in array A”. When finished, you take the data back from the device(s) and you are finished.
+>For example, you need to calculate `sin(x)` of a large array `A` of one million numbers. Based on the information provided by the OpenCL framework you can pick the best device, or even several devices, and send the data to the device(s). Normally you would loop over the million numbers, one number after another, but with OpenCL you can just say: "For each `x` in array `A` give me `sin(x)`", and each `x` is processed in parallel. When finished, you can take the data back from the device(s) or proceed with other computations.
 
-As the compute-devices can do more in parallel and OpenCL is better in describing independent functions, the total execution time is much lower than conventional methods.
+OpenCL framework is great at exposing parallel nature of various compute-devices: x86 CPUs, GPUs, FPGAs, DSPs. This can significantly lower the total execution time compared to conventional sequential methods.
 
 ## 5 questions on OpenCL
 
@@ -249,7 +249,7 @@ void ReleaseKernel(cl_kernel *pKernel);
 ```
 
 An error function has also been prepared to make it easier to translate an error code returned by an OpenCL host function, and it can be used as below:-
-```
+```c
 clError = clEnqueueNDRangeKernel(queue, simpleFunctionKernel, workDim, NULL, globalWorkSize, localWorkSize, 0, NULL, NULL);
 CHECK_OCL_ERR("clEnqueueNDRangeKernel", clError);
 ```
