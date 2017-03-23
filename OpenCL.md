@@ -17,8 +17,8 @@ TODO: What is OpenCL.org initiative?
    2. Debuggers
    3. Profilers
 3. [Libraries](#S-libraries)
-4. Specification
-5. Getting Started
+4. [Specification](#S-specification)
+5. [Getting Started](#S-get-started)
 6. Profiling
 7. Bibliography
 
@@ -60,13 +60,18 @@ OpenCL framework is great at exposing parallel nature of various compute-devices
 
 # <a name="S-platforms"></a>Platforms and tools
 
+This chapter includes information about OpenCL platforms and 
+
 ## <a name="S-platforms-sdks"></a>SDKs And OpenCL Implementations
 
 ### [AMD OpenCL™ Accelerated Parallel Processing - AMD APP SDK](http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/)
 
-AMD OpenCL™ Accelerated Parallel Processing (APP) technology is a set of advanced hardware and software technologies that enable AMD graphics processing cores (GPU), working in concert with the system’s x86 cores (CPU), to execute heterogeneously to accelerate many applications beyond just graphics.
+> AMD OpenCL™ Accelerated Parallel Processing (APP) technology is a set of advanced hardware and software technologies that enable AMD graphics processing cores (GPU), working in concert with the system’s x86 cores (CPU), to execute heterogeneously to accelerate many applications beyond just graphics.
 
-The SDK provides samples, documentation, and other materials.
+The SDK provides samples, documentation, and other materials. GPU drivers must be installed in order to run OpenCL programs on AMD GPUs.
+
+##### Note
+> AMD Linux Catalyst driver are not being updated since 18.12.2015 (Crimson Edition 15.12). We recommend you to install and test AMDGPU-PRO driver (only OpenCL 1.2), or try AMD ROCm.
 
 Supported hardware:
  * AMD GPU
@@ -75,18 +80,42 @@ Supported hardware:
 
 Supported software:
  * Windows
- * Linux
+ * Linux 
 
 Standards:
- * OpenCL 2.0
+ * OpenCL 2.0 (AMD Catalyst/Crimson)
+ * OpenCL 1.2 (AMDGPU-PRO)
 
+#### See also
+ * [AMD OpenCL Programming Guide](http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/12/AMD_OpenCL_Programming_User_Guide2.pdf)
+ * [List of various OpenCL OS projects/libraries supported by AMD](http://developer.amd.com/tools-and-sdks/open-source/)
+
+### [AMD ROCm](https://radeonopencompute.github.io/)
+
+ROCm is Open Source Platform for GPU Computing. ROCm 1.4 includes developer preview of OpenCL support (not yet open source in this release).
+
+Supported hardware:
+ * AMD GPU (limited list, GFX7 and GFX8 only - Hawaii, Fiji, Polaris)
+
+Supported software:
+ * Linux (with a special ROCm kernel)
+
+Standards:
+ * OpenCL 2.0 compatible kernel language and OpenCL 1.2 compatible runtime
+
+#### See also
+* https://github.com/RadeonOpenCompute/ROCm
 
 ### [Intel® SDK for OpenCL™ Applications](https://software.intel.com/en-us/intel-opencl)
 
-The Intel® SDK for OpenCL™ Applications is a comprehensive development environment for developing and optimizing OpenCL™ applications on Intel® platforms.
-The SDK supports offloading compute-intensive parallel workloads to Intel® Graphics Technology using an advanced OpenCL™ kernel compiler, runtime debugger and code performance analyzer.
+> The Intel® SDK for OpenCL™ Applications is a comprehensive development environment for developing and optimizing OpenCL™ applications on Intel® platforms.
 
-OpenCL samples are available at https://software.intel.com/en-us/intel-opencl-support/code-samples
+>The SDK supports offloading compute-intensive parallel workloads to Intel® Graphics Technology using an advanced OpenCL™ kernel compiler, runtime debugger and code performance analyzer.
+
+OpenCL samples are available at https://software.intel.com/en-us/intel-opencl-support/code-samples.
+
+##### Note
+> Since Intel SDK supports OpenCL 2.1 (and therefore supports SPIR-V 1.0), it is currently the only SDK that lets you run OpenCL C++ kernels (not all features works).
 
 Supported hardware:
  * Intel® Graphics (GPU)
@@ -101,7 +130,6 @@ Supported software:
 Standards:
  * OpenCL 2.0 & 1.2
  * OpenCL 2.1 (CPU only) with SPIR and SPIR-V support
-
 
 ### [NVIDIA® CUDA® Toolkit](https://developer.nvidia.com/cuda-toolkit)
 
@@ -122,10 +150,14 @@ Standards:
  * OpenCL 1.2
  * beta-support of OpenCL 2.0
 
+#### See also
+* https://developer.nvidia.com/opencl
+* [NVIDIA beta-support for OpenCL 2.0 on Windows](https://streamcomputing.eu/blog/2017-02-22/nvidia-enables-opencl-2-0-beta-support/), and [on Linux](https://streamcomputing.eu/blog/2017-03-06/nvidia-beta-support-opencl-2-0-linux/)
+
 
 ### [Intel® FPGA SDK for OpenCL™](https://www.altera.com/products/design-software/embedded-software-developers/opencl/overview.html)
 
-The Intel FPGA SDK for OpenCL allows the easy implementation of applications onto FPGAs by abstracting away the complexities of FPGA design, allowing software programmers to write hardware-accelerated kernel functions in OpenCL C, an ANSI C-based language with additional OpenCL constructs.
+>The Intel FPGA SDK for OpenCL allows the easy implementation of applications onto FPGAs by abstracting away the complexities of FPGA design, allowing software programmers to write hardware-accelerated kernel functions in OpenCL C, an ANSI C-based language with additional OpenCL constructs.
 As part of our SDK we provide a suite of tools to further resemble the fast development flow of software programmers.
 
 Supported hardware:
@@ -141,9 +173,8 @@ Standards:
 
 ### [Xilinx SDAccel™ development environment](http://www.xilinx.com/products/design-tools/software-zone/sdaccel.html)
 
-The SDAccel™ development environment for OpenCL™, C, and C++, enables up to 25X better performance/watt for data center application acceleration leveraging FPGAs.
+>The SDAccel™ development environment for OpenCL™, C, and C++, enables up to 25X better performance/watt for data center application acceleration leveraging FPGAs.
 SDAccel, member of the SDx™ family, combines the industry's first architecturally optimizing compiler supporting any combination of OpenCL, C, and C++ kernels, along with libraries, development boards and the first complete CPU/GPU like development and run-time experience for FPGAs.
-
 
 ### [Qualcomm® Adreno™ SDK](https://developer.qualcomm.com/software/adreno-gpu-sdk)
 
@@ -157,12 +188,11 @@ Supported software:
  * Android (as a target only)
 
 Standards:
- * OpenCL 2.1 (?)
-
+ * OpenCL 2.0
 
 ### [ARM Mali OpenCL SDK](https://developer.arm.com/products/software/mali-sdks/opencl)
 
-The Mali OpenCL SDK provides developers with a framework and series of samples for developing OpenCL 1.1 applications on ARM Mali based platforms such as the Mali-T600 and above family of GPUs.
+>The Mali OpenCL SDK provides developers with a framework and series of samples for developing OpenCL 1.1 applications on ARM Mali based platforms such as the Mali-T600 and above family of GPUs.
 The samples cover a wide range of use cases that utilize the Mali GPU to achieve a significant improvement in performance when compared to running on the CPU alone.
 
 Supported hardware:
@@ -174,23 +204,6 @@ Supported software:
 
 Standards:
  * OpenCL 1.1
-
-
-### [AMD ROCm](https://radeonopencompute.github.io/)
-
-ROCm is Open Source Platform for GPU Computing.
-The ROCm Platform brings a rich foundation to advanced computing by seamlessly integrating the CPU and GPU with the goal of solving real-world problems.
-
-ROCm 1.4 includes developer preview of OpenCL support (not yet open source in this release).
-
-Supported hardware:
- * AMD GPU (limited list, GFX7 and GFX8 only - Hawaii, Fiji, Polaris)
-
-Supported software:
- * Linux (with a special ROCm kernel)
-
-Standards:
- * OpenCL 2.0 compatible kernel language and OpenCL 1.2 compatible runtime
 
 # <a name="S-libraries"></a>Libraries
 
@@ -325,7 +338,7 @@ The platform model describes in general how the OpenCL framework looks like and 
 
 The execution model is the model that explains how the OpenCL framework really works. It defines responsibilities of a host program, it says what is a command queue, what is a kernel, and it describes how an execution of an OpenCL kernel on a device works. In order to understand OpenCL you must carefully read and understand particularly this part of the specification, and know: how workloads are mapped onto devices, when synchronization happens, what is an index space.
  
-# Getting Started
+# <a name="S-get-started"></a>Getting Started
 
 ## [CL-basic]()
 
