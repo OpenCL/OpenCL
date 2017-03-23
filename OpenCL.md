@@ -12,7 +12,7 @@ TODO: What is OpenCL.org initiative?
 > [Edit this when you add/remove sections/chapters.]
 
 1. [OpenCL Introduction](#S-introduction)
-2. Platforms and tools
+2. [Platforms and tools](#S-platforms)
    1. SDKs
    2. Debuggers
    3. Profilers
@@ -40,25 +40,25 @@ OpenCL framework is great at exposing parallel nature of various compute-devices
 
 **Q: Why is it so fast?**
 
->Because a lot of extra hands make less work, the hundreds of little processors on a graphics card being the extra hands. But cooperation with the main processor keeps being important to achieve maximum output.
+>OpenCL framework gives programmers tools and features which enable them to implement efficient parallel algorithms. It does it by providing direct access to the cores of multi-core CPUs, and to the hundreds of little processors on graphics cards. 
 
 **Q: Does it work on any type of hardware?**
 
->As it is an open standard, it can work on any type of hardware that targets parallel execution. This can be a CPU, GPU, DSP or FPGA.
+>As it is an open standard, it can work on any type of hardware that targets parallel execution. This can be a CPU, GPU, DSP or FPGA. You can read more in [Platforms and tools](#S-platforms) chapter.
 
 **Q: How does it compare to OpenMP/MPI?**
 
->Where OpenMP and MPI try to split loops over threads/servers and is CPU-oriented, OpenCL focuses on getting threads being data-position aware and making use of processor-capabilities. There are several efforts to combine the two worlds.
+>Where OpenMP and MPI try to split loops over threads/servers and is CPU-oriented, OpenCL focuses on getting threads being data-position aware and making use of processor-capabilities.
 
 **Q: Does it replace C or C++?**
 
->No, it is an extension which integrates well with C, C++, Python, Java and more.
+>No, it is a framework which integrates well with C, C++, Python, Java and more.
 
 **Q: How stable/mature is OpenCL?**
 
->Currently we have reached version 1.2 and is 3 years old. OpenCL has many predecessors and therefore quite older than 3 years.
+>First version of OpenCL was released in 2009. The latest version is OpenCL 2.1 from November 2015. The standard is being actively developed. Next version (2.2), which currently has provisional status, will include OpenCL C++ kernel language based C++14 standard.
 
-# Platforms and tools
+# <a name="S-platforms"></a>Platforms and tools
 
 # <a name="S-libraries"></a>Libraries
 
@@ -197,64 +197,65 @@ The execution model is the model that explains how the OpenCL framework really w
 
 ## [CL-basic]()
 
-CL-basic is a C prototype to help you get started with creating your own simple OpenCL application. It has both simple host-code functions and a sample OpenCL kernel that you can reference to get started quick! In addition, this prototype can be compiled under both Windows and Linux-based systems thanks to the use of Cmake.
+CL-basic is a C prototype to help you get started with creating your first simple OpenCL application. It offers simplified host-code OpenCL API functions and a sample OpenCL kernel that you can reference to get started quick! In addition, this prototype can be compiled under both Windows and Linux-based systems thanks to the use of CMake.
 
-Host-code functions can be found in:
-> cl_util.c
-> cl_util.h
+Host-code functions can be found in files:
+> `cl_util.c`
 
-For getting platform and/or device information, the following functions are:-
-```
+> `cl_util.h`
+
+For getting platform and/or device information, use the following functions are:
+```c
 void PrintPlatformName(cl_platform_id platform);
 void PrintDeviceName(cl_device_id device);
 int PrintOpenCLInfo();
 void SelectOpenCLPlatformAndDevice(cl_platform_id* pPlatform, cl_device_id* pDevice);
 ```
 
-For creating and releasing an OpenCL Context, the following functions are:-
-```
+For creating and releasing an OpenCL context, the following functions are:
+```c
 cl_context CreateOpenCLContext(cl_platform_id platform, cl_device_id device);
 void ReleaseOpenCLContext(cl_context *pContext);
 ```
 
-For creating and releasing an OpenCL Queue, the following functions are:-
-```
+For creating and releasing an OpenCL command queue, the following functions are:
+```c
 cl_command_queue CreateOpenCLQueue(cl_device_id device, cl_context context);
 void ReleaseOpenCLQueue(cl_command_queue *pQueue);
 ```
 
-For creating and releasing an OpenCL Device Buffer, the following functions are:-
-```
+For creating and releasing an OpenCL buffer allocated on an OpenCL device, the following functions are:
+```c
 cl_mem CreateDeviceBuffer(cl_context context, size_t sizeInBytes);
 void ReleaseDeviceBuffer(cl_mem *pDeviceBuffer);
 ```
 
-For copying data rom the host to device, or from the device to the host, the following functions are:-
-```
+For copying data rom the host to device, or from the device to the host, the following functions are:
+```c
 void CopyHostToDevice(void* hostBuffer, cl_mem deviceBuffer, size_t sizeInBytes, cl_command_queue queue, cl_bool blocking);
 void CopyDeviceToHost(cl_mem deviceBuffer, void* hostBuffer, size_t sizeInBytes, cl_command_queue queue, cl_bool blocking);
 ```
 
-For loading an OpenCL source from a file, creating and releasing the OpenCL program, the following functions are:-
-```
+For loading an OpenCL source from a file, creating and releasing the OpenCL program, the following functions are:
+```c
 char* LoadOpenCLSourceFromFile(char* filePath, size_t *pSourceLength);
 cl_program CreateAndBuildProgram(cl_context context, char* sourceCode, size_t sourceCodeLength);
 void ReleaseProgram(cl_program *pProgram);
 ```
 
-For creating and releasing OpenCL Kernels, the following functions are:-
-```
+For creating and releasing OpenCL Kernels, the following functions are:
+```c
 cl_kernel CreateKernel(cl_program program, char* kernelName);
 void ReleaseKernel(cl_kernel *pKernel);
 ```
 
-An error function has also been prepared to make it easier to translate an error code returned by an OpenCL host function, and it can be used as below:-
+An error function has also been prepared to make it easier to translate an error code returned by an OpenCL host function, and it can be used as below:
 ```c
 clError = clEnqueueNDRangeKernel(queue, simpleFunctionKernel, workDim, NULL, globalWorkSize, localWorkSize, 0, NULL, NULL);
 CHECK_OCL_ERR("clEnqueueNDRangeKernel", clError);
 ```
 
-Refer to *main.cpp* for a reference of how these host-code functions are used, and *OpenCLKernels.cl* for how the OpenCL kernel is written. 
+Refer to `main.cpp` for a reference of how these host-code functions are used, and `OpenCLKernels.cl` for how the OpenCL kernel is written. 
 
 # Profiling
 
