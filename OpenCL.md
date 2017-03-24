@@ -14,8 +14,7 @@ TODO: What is OpenCL.org initiative?
 1. [OpenCL Introduction](#S-introduction)
 2. [Platforms and tools](#S-platforms)
    1. [SDKs](#S-platforms-sdks)
-   2. Debuggers
-   3. Profilers
+   2. [Debuggers and profilers](#S-platforms-tools)
 3. [Libraries](#S-libraries)
 4. [Specification](#S-specification)
 5. [Getting Started](#S-get-started)
@@ -26,7 +25,7 @@ TODO: What is OpenCL.org initiative?
 
 ## What is OpenCL?
 
-OpenCL (trademark of Apple Computers Inc.) is an open, royalty-free industry standard that makes much faster computations possible through parallel computing. The standard is controlled by non-profit standards organisation Khronos. For example, by using this technology with graphics cards and modern multi-core processors it is possible to convert a video in 20 minutes instead of 2 hours, or analyze spectra of hundreds of thousands of stars in minutes instead of several hours.
+OpenCL is an open, royalty-free industry standard that makes much faster computations possible through parallel computing. The standard is controlled by non-profit standards organisation Khronos. For example, by using this technology with graphics cards and modern multi-core processors it is possible to convert a video in 20 minutes instead of 2 hours, or analyze spectra of hundreds of thousands of stars in minutes instead of several hours.
 
 ## How does it work?
 
@@ -60,8 +59,6 @@ OpenCL framework is great at exposing parallel nature of various compute-devices
 
 # <a name="S-platforms"></a>Platforms and tools
 
-This chapter includes information about OpenCL platforms and 
-
 ## <a name="S-platforms-sdks"></a>SDKs And OpenCL Implementations
 
 ### [AMD OpenCL™ Accelerated Parallel Processing - AMD APP SDK](http://developer.amd.com/tools-and-sdks/opencl-zone/amd-accelerated-parallel-processing-app-sdk/)
@@ -78,7 +75,7 @@ Supported hardware:
  * AMD APU
  * x86 CPU
 
-Supported software:
+Supported OS:
  * Windows
  * Linux 
 
@@ -90,14 +87,14 @@ Standards:
  * [AMD OpenCL Programming Guide](http://amd-dev.wpengine.netdna-cdn.com/wordpress/media/2013/12/AMD_OpenCL_Programming_User_Guide2.pdf)
  * [List of various OpenCL OS projects/libraries supported by AMD](http://developer.amd.com/tools-and-sdks/open-source/)
 
-### [AMD ROCm](https://radeonopencompute.github.io/)
+### [AMD ROCm](https://radeonopencompute.github.io/) (Partially Open Source)
 
 ROCm is Open Source Platform for GPU Computing. ROCm 1.4 includes developer preview of OpenCL support (not yet open source in this release).
 
 Supported hardware:
  * AMD GPU (limited list, GFX7 and GFX8 only - Hawaii, Fiji, Polaris)
 
-Supported software:
+Supported OS:
  * Linux (with a special ROCm kernel)
 
 Standards:
@@ -112,7 +109,7 @@ Standards:
 
 >The SDK supports offloading compute-intensive parallel workloads to Intel® Graphics Technology using an advanced OpenCL™ kernel compiler, runtime debugger and code performance analyzer.
 
-OpenCL samples are available at https://software.intel.com/en-us/intel-opencl-support/code-samples.
+Intel® SDK for OpenCL™ Application includes Intel OpenCL™ Code Builder which allows you to build (offline), debug, and analyze OpenCL programs.
 
 ##### Note
 > Since Intel SDK supports OpenCL 2.1 (and therefore supports SPIR-V 1.0), it is currently the only SDK that lets you run OpenCL C++ kernels (not all features works).
@@ -122,7 +119,7 @@ Supported hardware:
  * Intel® Processors (CPU)
  * Intel® Xeon Phi™ Coprocessors
 
-Supported software:
+Supported OS:
  * Windows
  * Linux
  * Android (as a target only)
@@ -130,6 +127,12 @@ Supported software:
 Standards:
  * OpenCL 2.0 & 1.2
  * OpenCL 2.1 (CPU only) with SPIR and SPIR-V support
+
+
+#### See also
+
+* [Free OpenCL training materials provided by Intel](https://software.intel.com/en-us/intel-opencl-support/training)
+* [OpenCL code samples provided by Intel](https://software.intel.com/en-us/intel-opencl-support/code-samples)
 
 ### [NVIDIA® CUDA® Toolkit](https://developer.nvidia.com/cuda-toolkit)
 
@@ -141,7 +144,7 @@ OpenCL samples with source code for Windows, Linux and macOS are available at ht
 Supported hardware:
  * NVIDIA GPUs
 
-Supported software:
+Supported OS:
  * Windows
  * Linux
  * macOS
@@ -154,6 +157,26 @@ Standards:
 * https://developer.nvidia.com/opencl
 * [NVIDIA beta-support for OpenCL 2.0 on Windows](https://streamcomputing.eu/blog/2017-02-22/nvidia-enables-opencl-2-0-beta-support/), and [on Linux](https://streamcomputing.eu/blog/2017-03-06/nvidia-beta-support-opencl-2-0-linux/)
 
+### [Portable Computing Language (pocl)](http://portablecl.org/) (Open Source)
+
+>Portable Computing Language (pocl) aims to become a MIT-licensed open source implementation of the OpenCL standard which can be easily adapted for new targets and devices, both for homogeneous CPU and heterogeneous GPUs/accelerators.
+
+>pocl uses Clang as an OpenCL C frontend and LLVM for the kernel compiler implementation, and as a portability layer. Thus, if your desired target has an LLVM backend, it should be able to get OpenCL support easily by using pocl.
+
+Supported hardware:
+ * x86 CPU
+ * HSA targets
+
+Supported OS:
+ * Windows
+ * Linux
+
+Standards:
+ * OpenCL 1.2 with [some features missing](https://github.com/pocl/pocl/wiki/OpenCL-1.2-missing-features)
+
+#### See also
+* [pocl on GitHub](https://github.com/pocl/pocl)
+* [pocl's documentation](http://portablecl.org/docs/html/)
 
 ### [Intel® FPGA SDK for OpenCL™](https://www.altera.com/products/design-software/embedded-software-developers/opencl/overview.html)
 
@@ -204,6 +227,103 @@ Supported software:
 
 Standards:
  * OpenCL 1.1
+
+### [The Texas Instruments OpenCL Implementation](http://downloads.ti.com/mctools/esd/docs/opencl/intro.html)
+
+Texas Instruments supports OpenCL 1.1 on a few selected processors. Full list of supported systems is available [here](http://downloads.ti.com/mctools/esd/docs/opencl/intro.html).
+
+Supported hardware:
+ * Selected processors ([list](http://downloads.ti.com/mctools/esd/docs/opencl/intro.html))
+
+Standards:
+ * OpenCL 1.1
+
+#### See also
+* [Introduction to OpenCL on TI Embedded Processors](https://training.ti.com/sites/default/files/docs/Introduction_to_OpenCL_slides.pdf)
+
+## <a name="S-platforms-tools"></a>Debuggers and profilers
+
+### [CodeXL](http://gpuopen.com/compute-product/codexl/) (Debugger, Profiler)
+
+> CodeXL is a comprehensive tool suite that enables developers to harness the benefits of CPUs, GPUs and APUs. CodeXL is available both as a Visual Studio extension and a standalone user interface application for Windows and Linux.
+
+CodeXL works on ROCm platform.
+
+Features:
+* Combined Host and GPU Debugging
+    * Real-time OpenCL kernel debugging
+* AMD GPU Profiling
+    * Application Timeline Trace (multiple contexts and queues, tips about redundant synchronizations, OpenCL objects leaks...)
+    * GPU Performance Counters (memory transfers, cache hits, occupancy, registers usage...)
+* CPU Profiling 
+* Static Kernel Analysis
+* APU/CPU/GPU power profiling
+* Remote machine profiling and debugging 
+
+#### See also
+
+* [GPUOpen technical blogs about CodeXL by AMD](http://gpuopen.com/tag/codexl/)
+    * [Getting Up to Speed on the CodeXL GPU Profiler](http://gpuopen.com/getting-up-to-speed-with-the-codexl-gpu-profiler-and-radeon-open-compute/)
+* [Detailed list of all features](http://gpuopen.com/compute-product/codexl/)
+* https://github.com/GPUOpen-Tools/CodeXL
+
+### [Intel® VTune™ Amplifier XE](https://software.intel.com/en-us/intel-vtune-amplifier-xe) (Profiler)
+
+>With Intel® VTune™ Amplifier, you get all these advanced profiling capabilities with a single, friendly analysis interface. And for media applications, you also get powerful tools to tune OpenCL* and the GPU.
+
+##### Note
+> Intel® SDK for OpenCL™ Application includes Intel OpenCL™ Code Builder which allows you to build (offline), debug, and analyze OpenCL programs.
+
+#### See alo
+
+* [Detailed list of features](https://software.intel.com/en-us/intel-vtune-amplifier-xe/details)
+* [Intel VTune Amplifier XE: Getting started with OpenCL performance analysis on Intel HD Graphics](https://software.intel.com/en-us/articles/intel-vtune-amplifier-xe-getting-started-with-opencl-performance-analysis-on-intel-hd-graphics)
+
+### [Intel® Graphics Performance Analyzers (GPA)](https://software.intel.com/en-us/gpa) (Debugger, Profiler)
+
+Intel® SDK for OpenCL™ Applications provides integration with the Intel® Graphics Performance Analyzers (Intel® GPA), which enables you to optimize and analyze your OpenCL code in visual computing applications.
+
+Intel GPA support various metrics for Intel CPU and HD Graphics devices. Some
+metrics are specific to the rendering (Microsoft DirectX* API) pipeline only, while some
+are more general and can be associated with OpenCL execution.
+
+With Intel GPA you can also inspect various important hardware counters for Intel CPU
+and HD Graphics devices in real time, for example:
+
+ * Utilization of CPU cores and the execution units in Intel HD Graphics devices
+ * Memory traffic for Intel HD Graphics devices
+ * Power consumption, and so on
+
+#### See also
+
+* [Profiling OpenCL Applications with System Analyzer and Platform Analyzer](https://software.intel.com/en-us/articles/profiling-opencl-applications-with-system-analyzer-and-platform-analyzer)
+* [Collecting OpenCL-related Metrics with Intel Graphics Performance Analyzers](https://software.intel.com/sites/default/files/m/d/4/1/d/8/Collecting_Important_OpenCL-related_metrics_with_GPA.pdf)
+
+### [Qualcomm Snapdragon Profiler](https://developer.qualcomm.com/software/snapdragon-profiler)
+
+> Snapdragon Profiler is profiling software that runs on the Windows, Mac, and Linux platforms. It connects with Android devices powered by Snapdragon processors over USB. Snapdragon Profiler allows developers to analyze CPU, GPU, DSP, memory, power, thermal, and network data, so they can find and fix performance bottlenecks.
+
+#### See also
+
+* [List of docs and tutorials for Snapdragon Profiler](https://developer.qualcomm.com/software/snapdragon-profiler/tools)
+
+### [Oclgrind](https://github.com/jrprice/Oclgrind)
+
+>Oclgrind is an open source SPIR interpreter and OpenCL device simulator. The core of this project is an interpreter for SPIR, which can simulate the execution of an OpenCL kernel running on a virtual OpenCL device. Oclgrind is designed to be extensible and aims to provide a platform with which a variety of useful tools can be created to aid OpenCL application development.
+
+At present, Oclgrind includes support for the following features:
+
+* Detecting memory access errors (such as reading/writing outside the bounds of an array)
+* Data-race detection
+* Interactive kernel debugging
+* Detecting work-group divergence (barriers and async copies)
+* Collecting histograms of instructions executed
+* Logging OpenCL runtime API errors
+
+#### See also
+
+* [Oclgrind Wiki](https://github.com/jrprice/Oclgrind/wiki)
+* [Oclgrind: An Extensible OpenCL Device Simulator @ IWOCL'15](http://www.iwocl.org/wp-content/uploads/iwocl-2015-talk-James-Price-UoBristol.pdf), [Video](https://www.youtube.com/watch?v=J2LSVtybX8g)
 
 # <a name="S-libraries"></a>Libraries
 
@@ -267,8 +387,8 @@ VexCL was developed with scientific computing in mind. It provides custom DSL to
 
 >VexCL is a vector expression template library for OpenCL/CUDA. It has been created for ease of GPGPU development with C++. VexCL strives to reduce amount of boilerplate code needed to develop GPGPU applications. The library provides convenient and intuitive notation for vector arithmetic, reduction, sparse matrix-vectork products, etc. Multi-device and even multi-platform computations are supported. The source code of the library is distributed under very permissive MIT license.
 
-* Homepage: https://github.com/boostorg/compute/
-* Documentation: http://www.boost.org/doc/libs/1_63_0/libs/compute/doc/html/index.html
+* Homepage: https://github.com/ddemidov/vexcl
+* Documentation: http://vexcl.readthedocs.io/en/latest/
 * Talks: http://vexcl.readthedocs.io/en/latest/talks.html
 * Other resources:
     * [Differences between VexCL, Thrust, and Boost.Compute](http://stackoverflow.com/questions/20154179/differences-between-vexcl-thrust-and-boost-compute)
