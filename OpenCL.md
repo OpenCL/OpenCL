@@ -115,7 +115,7 @@ Intel® SDK for OpenCL™ Application includes Intel OpenCL™ Code Builder whic
 > Since Intel SDK supports OpenCL 2.1 (and therefore supports SPIR-V 1.0), it is currently the only SDK that lets you run OpenCL C++ kernels (not all features works).
 
 Supported hardware:
- * Intel® Graphics (GPU)
+ * Intel® Graphics (GPU), only Windows
  * Intel® Processors (CPU)
  * Intel® Xeon Phi™ Coprocessors
 
@@ -133,6 +133,23 @@ Standards:
 
 * [Free OpenCL training materials provided by Intel](https://software.intel.com/en-us/intel-opencl-support/training)
 * [OpenCL code samples provided by Intel](https://software.intel.com/en-us/intel-opencl-support/code-samples)
+
+### [Beignet](https://www.freedesktop.org/wiki/Software/Beignet/) for Intel GPUs on Linux (Open Source)
+
+>Beignet contains the code to run OpenCL programs on Intel GPUs, which defines and implements host functions required to initialize the device, create the command queues, the kernels, and the programs and run them on the GPU. It also contains the compiler part of the stack.
+
+Supported hardware:
+ * Intel® Graphics (GPU)
+
+Supported OS:
+ * Linux
+ * Android
+
+Standards:
+ * OpenCL 2.0 & 1.2
+
+#### See alos
+* [Beignet on 01.org (Intel's open source community)](https://01.org/beignet)
 
 ### [NVIDIA® CUDA® Toolkit](https://developer.nvidia.com/cuda-toolkit)
 
