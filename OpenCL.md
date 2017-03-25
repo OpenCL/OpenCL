@@ -419,7 +419,9 @@ clMathLibraries is a name for a group of math libraries with OpenCL backend. Als
 * [clRNG](https://github.com/clMathLibraries/clRNG) - an OpenCL based software library containing random number generation functions
 
 ##### Note
-> Full list of libraries using OpenCL can be found at [khronos.org/opencl/resources](https://www.khronos.org/opencl/resources).
+> More complete lists of OpenCL libraries, bindings and toolkits can be found at:
+> * [khronos.org/opencl/resources](https://www.khronos.org/opencl/resources), and at
+> * [iwocl.org/resources/opencl-libraries-and-toolkits](http://www.iwocl.org/resources/opencl-libraries-and-toolkits/).
 
 # <a name="S-specification"></a>Specification
 
@@ -528,3 +530,4 @@ Refer to `main.cpp` for a reference of how these host-code functions are used, a
 
 * [The Khronos OpenCL Working Group, The OpenCL Specification, Version: 2.1](https://www.khronos.org/registry/OpenCL/specs/opencl-2.1.pdf)
 * [The Khronos OpenCL Working Group, The OpenCL C Specification, Version: 2.0](https://www.khronos.org/registry/OpenCL/specs/opencl-2.0-openclc.pdf)
+* [IWOCL.org: Resources](http://www.iwocl.org/resources/)
