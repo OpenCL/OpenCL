@@ -533,7 +533,7 @@ cl_kernel CreateKernel(cl_program program, char* kernelName);
 void ReleaseKernel(cl_kernel *pKernel);
 ```
 
-An error function has also been prepared to make it easier to translate an error code returned by an OpenCL host function, and it can be used as below:
+A macro for checking error values has also been prepared to make it easier to translate an error code returned by an OpenCL host function, and it can be used as below:
 ```c
 clError = clEnqueueNDRangeKernel(queue, simpleFunctionKernel, workDim, NULL, globalWorkSize, localWorkSize, 0, NULL, NULL);
 CHECK_OCL_ERR("clEnqueueNDRangeKernel", clError);
@@ -542,6 +542,89 @@ CHECK_OCL_ERR("clEnqueueNDRangeKernel", clError);
 Refer to `main.cpp` for a reference of how these host-code functions are used, and `OpenCLKernels.cl` for how the OpenCL kernel is written. 
 
 # Profiling
+
+## Using OpenCL events
+
+OpenCL framework has a built-in feature that can provide information about the execution times of enqueued commands.
+By linking `cl_event` object to an OpenCL command, like `clEnqueueNDRangeKernel`, it is possible to use `clGetEventProfilingInfo` function to get the times of the start and the end of execution of that command and calulcate the performance. Profiling of OpenCL commands can be enabled by using a command queue created with `CL_QUEUE_PROFILING_ENABLE` flag set in properties argument.
+
+### Supported queries
+
+```c
+cl_int clGetEventProfilingInfo(cl_event event,
+                               cl_profiling_info param_name,
+                               size_t param_value_size,
+                               void *param_value,
+                               size_t *param_value_size_ret)
+```
+
+`CL_PROFILING_COMMAND_QUEUED`
+
+A 64-bit value that describes the current device time counter in nanoseconds when the command identified by event is enqueued in a command-queue by the host.
+
+`CL_PROFILING_COMMAND_SUBMIT`
+
+A 64-bit value that describes the current device time counter in nanoseconds when the command identified by event that has been enqueued is submitted by the host to the device associated with the command-queue.
+
+`CL_PROFILING_COMMAND_START`
+
+A 64-bit value that describes the current device time counter in nanoseconds when the command identified by event starts execution on the device.
+
+`CL_PROFILING_COMMAND_END`
+
+A 64-bit value that describes the current device time counter in nanoseconds when the command identified by event has finished execution on the device.
+
+`CL_PROFILING_COMMAND_COMPLETE` (since OpenCL 2.1)
+
+A 64-bit value that describes the current device time counter in nanoseconds when the command identified by event and any child commands enqueued by this command on the device have finished execution.
+
+### Example using OpenCL C API and CL-Basic:
+
+First, to the commend queue used to execute kernels must be created with `CL_QUEUE_PROFILING_ENABLE` flag:
+
+```c
+#ifdef CL_VERSION_2_0
+    cl_queue_properties prop[] = { CL_QUEUE_PROPERTIES, CL_QUEUE_PROFILING_ENABLE, 0 };
+
+    queue = clCreateCommandQueueWithProperties(context, device, prop, &clError);
+    CHECK_OCL_ERR("clCreateCommandQueueWithProperties", clError);
+#else
+    cl_command_queue_properties prop = 0;
+    prop |= CL_QUEUE_PROFILING_ENABLE;
+
+    queue = clCreateCommandQueue(context, device, prop, &clError);
+    CHECK_OCL_ERR("clCreateCommandQueue", clError);
+#endif
+```
+
+Then, you can enqueue a kernel, wait for completion and use associated event object and function `clGetEventProfilingInfo` to calculate the execution time:
+
+```c
+cl_event event;
+
+err = clEnqueueNDRangeKernel(
+    queue, kernel, 1, NULL, &global_work_size, NULL, 0, NULL, &event
+);
+CHECK_OCL_ERR("clEnqueueNDRangeKernel", err);
+
+err = clWaitForEvents(1, &event);
+CHECK_OCL_ERR("clWaitForEvents", err);
+
+cl_ulong start_time, end_time;
+err = clGetEventProfilingInfo(
+    event, CL_PROFILING_COMMAND_START, sizeof(cl_ulong), &start_time, NULL
+);
+CHECK_OCL_ERR("clGetEventProfilingInfo", err);
+err = clGetEventProfilingInfo(
+    event, CL_PROFILING_COMMAND_END, sizeof(cl_ulong), &end_time, NULL
+);
+CHECK_OCL_ERR("clGetEventProfilingInfo", err);
+
+printf("%lu\n", end_time - start_time);
+
+err = clReleaseEvent(event);
+CHECK_OCL_ERR("clReleaseEvent", err);
+```
 
 # Bibliography
 
