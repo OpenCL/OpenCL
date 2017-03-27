@@ -580,7 +580,7 @@ A 64-bit value that describes the current device time counter in nanoseconds whe
 
 ### Example using OpenCL C API and CL-Basic:
 
-First, to the commend queue used to execute kernels must be created with `CL_QUEUE_PROFILING_ENABLE` flag:
+First, the commend queue used to execute kernels must be created with `CL_QUEUE_PROFILING_ENABLE` flag:
 
 ```c
 #ifdef CL_VERSION_2_0
@@ -624,6 +624,94 @@ printf("%lu\n", end_time - start_time);
 
 err = clReleaseEvent(event);
 CHECK_OCL_ERR("clReleaseEvent", err);
+```
+
+## Benchmarking on host
+
+If you can't or don't want to use `CL_QUEUE_PROFILING_ENABLE` flag, it is also possible to benchmark kernels, or in general any OpenCL function, using features of the host language that you use OpenCL with. However, in that case it is important to always run the kernel multiple times in order to get the correct average execution time.
+
+### C++11 Example (with CL-basic)
+
+```cpp
+#include <chrono>
+#include <iostream>
+
+(...)
+
+using ms_duration_type = std::chrono::duration<double, std::milli>;
+duration_type sum_durations(0);
+
+// Remember to compile kernel before benchmarking.
+
+const size_t iterations_count = 100;
+for (size_t iteration = 0; iteration < iterations_count; iteration++)
+{
+    cl_event event;
+
+    // Preparation: set kernel arguments, fill input buffers etc.
+
+    auto start_time =
+        std::chrono::high_resolution_clock::now();
+
+    err = clEnqueueNDRangeKernel(
+        queue, kernel, 1,
+        NULL, &global_work_size, &local_work_size,
+        0, NULL, &event
+    );
+    CHECK_OCL_ERR("clEnqueueNDRangeKernel", err);
+
+    err = clWaitForEvents(1, &event);
+    CHECK_OCL_ERR("clWaitForEvents", err);
+
+    ms_duration_type duration = 
+        std::chrono::high_resolution_clock::now() - start_time;
+    sum_durations += duration;
+
+    err = clReleaseEvent(event);
+    CHECK_OCL_ERR("clReleaseEvent", err);
+}
+
+auto avg_duration = sum_durations / iterations_count;
+std::cout << avg_duration.count() << " ms\n";
+
+(...)
+```
+
+### C++11 Example (with Boost.Compute)
+
+```cpp
+#include <chrono>
+#include <iostream>
+#include <boost/compute.hpp>
+
+(...)
+
+using ms_duration_type = std::chrono::duration<double, std::milli>;
+duration_type sum_durations(0);
+
+// Remember to compile kernel before benchmarking.
+
+const size_t iterations_count = 100;
+for (size_t iteration = 0; iteration < iterations_count; iteration++)
+{
+    // Preparation: set kernel arguments, fill input buffers etc.
+
+    auto start_time =
+        std::chrono::high_resolution_clock::now();
+
+    queue.enqueue_1d_range_kernel(
+        kernel, 0 /* offset */, global_work_size, local_work_size
+    ).wait();
+
+    ms_duration_type duration = 
+        std::chrono::high_resolution_clock::now() - start_time;
+    sum_durations += duration;
+}
+
+auto avg_duration = sum_durations / iterations_count;
+std::cout << avg_duration.count() << " ms\n";
+
+(...)
 ```
 
 # Bibliography
