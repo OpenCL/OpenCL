@@ -1,6 +1,6 @@
 # OpenCL.org Initiative
 
-TODO: What is OpenCL.org initiative?
+ToDo: What is OpenCL.org initiative?
 
 ## Acknowledgements
 
@@ -8,18 +8,20 @@ TODO: What is OpenCL.org initiative?
 
 # Table Of Contents
 
-##### NOTE FOR CONTRIBUTORS:
-> [Edit this when you add/remove sections/chapters.]
-
 1. [OpenCL Introduction](#S-introduction)
 2. [Platforms and tools](#S-platforms)
-   1. [SDKs](#S-platforms-sdks)
-   2. [Debuggers and profilers](#S-platforms-tools)
+    * [SDKs](#S-platforms-sdks)
+    * [Debuggers and profilers](#S-platforms-tools)
 3. [Libraries](#S-libraries)
 4. [Specification](#S-specification)
 5. [Getting Started](#S-get-started)
-6. Profiling
-7. Bibliography
+    * [Tutorials](#S-get-started-tutorials)
+    * [CL-basic](#S-get-started-cl-basic)
+    * [Boost.Compute](#S-get-started-boost-compute)
+6. [Profiling](#S-profiling)
+    * [OpenCL events](#S-profiling-cl-events)    
+    * [Benchmarking on host](#S-profiling-on-host)    
+7. [Bibliography](#S-bibliography)
 
 # <a name="S-introduction"></a>OpenCL Introduction
 
@@ -479,7 +481,11 @@ The execution model is the model that explains how the OpenCL framework really w
  
 # <a name="S-get-started"></a>Getting Started
 
-## [CL-basic]()
+## <a name="S-get-started-tutorials"></a>Tutorials
+
+ToDo
+
+## <a name="S-get-started-cl-basic"></a>[CL-basic](https://github.com/OpenCL/CL-basic)
 
 CL-basic is a C prototype to help you get started with creating your first simple OpenCL application. It offers simplified host-code OpenCL API functions and a sample OpenCL kernel that you can reference to get started quick! In addition, this prototype can be compiled under both Windows and Linux-based systems thanks to the use of CMake.
 
@@ -541,9 +547,13 @@ CHECK_OCL_ERR("clEnqueueNDRangeKernel", clError);
 
 Refer to `main.cpp` for a reference of how these host-code functions are used, and `OpenCLKernels.cl` for how the OpenCL kernel is written. 
 
-# Profiling
+## <a name="S-get-started-boost-compute"></a>[Boost.Compute](https://github.com/boostorg/compute/) and [CL-compute](https://github.com/OpenCL/CL-compute)
 
-## Using OpenCL events
+ToDo
+
+# <a name="S-profiling"></a>Profiling
+
+## <a name="S-profiling-cl-events"></a>Using OpenCL events
 
 OpenCL framework has a built-in feature that can provide information about the execution times of enqueued commands.
 By linking `cl_event` object to an OpenCL command, like `clEnqueueNDRangeKernel`, it is possible to use `clGetEventProfilingInfo` function to get the times of the start and the end of execution of that command and calulcate the performance. Profiling of OpenCL commands can be enabled by using a command queue created with `CL_QUEUE_PROFILING_ENABLE` flag set in properties argument.
@@ -626,7 +636,7 @@ err = clReleaseEvent(event);
 CHECK_OCL_ERR("clReleaseEvent", err);
 ```
 
-## Benchmarking on host
+## <a name="S-profiling-on-host"></a>Benchmarking on host
 
 If you can't or don't want to use `CL_QUEUE_PROFILING_ENABLE` flag, it is also possible to benchmark kernels, or in general any OpenCL function, using features of the host language that you use OpenCL with. However, in that case it is important to always run the kernel multiple times in order to get the correct average execution time.
 
@@ -714,7 +724,7 @@ std::cout << avg_duration.count() << " ms\n";
 (...)
 ```
 
-# Bibliography
+# <a name="S-bibliography"></a>Bibliography
 
 * [The Khronos OpenCL Working Group, The OpenCL Specification, Version: 2.1](https://www.khronos.org/registry/OpenCL/specs/opencl-2.1.pdf)
 * [The Khronos OpenCL Working Group, The OpenCL C Specification, Version: 2.0](https://www.khronos.org/registry/OpenCL/specs/opencl-2.0-openclc.pdf)

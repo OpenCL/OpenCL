@@ -1,6 +1,6 @@
 # [OpenCL.org](./OpenCL.md)
 
-TODO: Introduction
+ToDo: Introduction
 
 ## Contributions and LICENSE
 
