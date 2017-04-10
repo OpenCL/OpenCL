@@ -111,7 +111,7 @@ Standards:
 
 >The SDK supports offloading compute-intensive parallel workloads to Intel® Graphics Technology using an advanced OpenCL™ kernel compiler, runtime debugger and code performance analyzer.
 
-Intel® SDK for OpenCL™ Application includes Intel OpenCL™ Code Builder which allows you to build (offline), debug, and analyze OpenCL programs.
+Intel® SDK for OpenCL™ Application includes Intel OpenCL™ Code Builder which allows you to build (offline), debug, and analyze OpenCL programs. It is required to install OpenCL drivers for CPUs and GPUs ([Intel OpenCL drivers](https://software.intel.com/en-us/articles/opencl-drivers)) since SDK only includes experimental 2.1 platform with drivers for a CPU device.
 
 ##### Note
 > Since Intel SDK supports OpenCL 2.1 (and therefore supports SPIR-V 1.0), it is currently the only SDK that lets you run OpenCL C++ kernels (not all features works).
@@ -133,6 +133,7 @@ Standards:
 
 #### See also
 
+* [Intel OpenCL drivers](https://software.intel.com/en-us/articles/opencl-drivers)
 * [Free OpenCL training materials provided by Intel](https://software.intel.com/en-us/intel-opencl-support/training)
 * [OpenCL code samples provided by Intel](https://software.intel.com/en-us/intel-opencl-support/code-samples)
 
