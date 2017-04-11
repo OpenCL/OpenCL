@@ -8,4 +8,4 @@ layout: page
 permalink: http://opencl.org/
 published: true
 ---
-Welcome to your site! This is your homepage, which is what most visitors will see when they come to your site for the first time.
+Welcome to the OpenCL.org website. Here you'll find ways to improve yourself by learning more about OpenCL and ways to improve OpenCL by working on various projects.
