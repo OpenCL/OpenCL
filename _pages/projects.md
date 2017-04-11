@@ -8,12 +8,10 @@ layout: page
 permalink: http://opencl.org/projects/
 published: true
 ---
-This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:
+This is the most important part of OpenCL.org. Here is where we build the OpenCL ecosphere that is still unfinished.
 
-<blockquote>Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin' caught in the rain.)</blockquote>
+OpenCL exists of core specifications, as provided by <a href="https://www.khronos.org/opencl/">The Khronos Group</a> and core functionality as provided by the various vendors. Then it's a steep wall down.
 
-...or something like this:
+By various projects, we're going to make that wall less steep. Together.
 
-<blockquote>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</blockquote>
-
-As a new WordPress user, you should go to <a href="http://opencl.org/wp-admin/">your dashboard</a> to delete this page and create new pages for your content. Have fun!
+For other initiatives see the sections 'Coding' and 'Tools'.
