@@ -31,7 +31,7 @@ The Developer Manual now is equal to the OpenCL specifications, but in about a y
 Do you want your project to be part of OpenCL.org? Just like StreamComputing you can donate material (text and code) to the community. You will be mentioned as beneficiary.
 
 If you'd like to financially support this initiative, get in contact with StreamComputing - email and phone are further below.
-<h1>The time to come</h1>
+<h1>What's coming up?</h1>
 In the beginning we (StreamComputing) will mostly steer where it is going to prevent anarchy. If you want us to hear your say,  get in contact on <a href="https://www.linkedin.com/groups/3570157">LinkedIn</a>, <a href="https://twitter.com/openclorg">Twitter</a> or <a href="https://github.com/OpenCL/OpenCL/issues">Github</a>.
 
 I'm personally very happy that this finally happens and I'm looking forward for a fruitful period of an organised OpenCL community.
