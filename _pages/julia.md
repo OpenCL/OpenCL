@@ -8,3 +8,6 @@ layout: page
 permalink: http://opencl.org/coding/julia/
 published: true
 ---
+GPUarrays
+
+<strong>Page Contributors</strong>:
