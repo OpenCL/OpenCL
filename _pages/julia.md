@@ -8,6 +8,16 @@ layout: page
 permalink: http://opencl.org/coding/julia/
 published: true
 ---
-GPUarrays
+[OpenCL](https://github.com/JuliaGPU/OpenCL.jl)
+
+[GPUarrays](https://github.com/JuliaGPU/GPUArrays.jl/)
+
+[CLBLAS](https://github.com/JuliaGPU/CLBLAS.jl)
+
+[CLFFT](https://github.com/JuliaGPU/CLFFT.jl)
+
+[Transpiler](https://github.com/SimonDanisch/Transpiler.jl)
 
 <strong>Page Contributors</strong>:
+
+[Simon Danisch](https://github.com/SimonDanisch/)
