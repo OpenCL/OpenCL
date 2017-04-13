@@ -1,7 +1,7 @@
 ---
 ID: 7
 post_title: Blog
-author: Vincent Hindriksen
+author: OpenCL.org
 post_date: 2017-04-06 15:50:11
 post_excerpt: ""
 layout: page
