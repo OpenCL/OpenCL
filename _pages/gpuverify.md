@@ -1,7 +1,7 @@
 ---
 ID: 62
 post_title: GPUverify
-author: Vincent Hindriksen
+author: OpenCL.org
 post_date: 2017-04-07 21:56:40
 post_excerpt: ""
 layout: page
