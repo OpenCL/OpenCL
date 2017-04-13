@@ -1,7 +1,7 @@
 ---
 ID: 26
 post_title: 'GEGL &#8211; OpenCL in Gimp'
-author: Vincent Hindriksen
+author: OpenCL.org
 post_date: 2017-04-06 20:08:20
 post_excerpt: ""
 layout: page
