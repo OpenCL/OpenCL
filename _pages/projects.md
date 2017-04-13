@@ -1,7 +1,7 @@
 ---
 ID: 2
 post_title: Projects
-author: Vincent Hindriksen
+author: OpenCL.org
 post_date: 2017-04-06 14:59:58
 post_excerpt: ""
 layout: page
