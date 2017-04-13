@@ -1,7 +1,7 @@
 ---
 ID: 75
 post_title: QUALCOMM
-author: Vincent Hindriksen
+author: OpenCL.org
 post_date: 2017-04-07 22:00:20
 post_excerpt: ""
 layout: page
