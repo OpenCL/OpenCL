@@ -1,7 +1,7 @@
 ---
 ID: 150
 post_title: Oclgrind
-author: Vincent Hindriksen
+author: OpenCL.org
 post_date: 2017-04-12 16:04:59
 post_excerpt: ""
 layout: page
