@@ -1,7 +1,7 @@
 ---
 ID: 73
 post_title: NVIDIA
-author: Vincent Hindriksen
+author: OpenCL.org
 post_date: 2017-04-07 21:59:58
 post_excerpt: ""
 layout: page
