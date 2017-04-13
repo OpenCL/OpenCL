@@ -7,6 +7,10 @@ post_excerpt: ""
 layout: page
 permalink: http://opencl.org/about/
 published: true
+hefo_before:
+  - "1"
+hefo_after:
+  - "1"
 ---
 OpenCL needs work. We can complain, but better is to just fix it.
 
