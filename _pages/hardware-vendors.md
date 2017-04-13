@@ -1,7 +1,7 @@
 ---
 ID: 50
 post_title: Hardware Vendors
-author: Vincent Hindriksen
+author: OpenCL.org
 post_date: 2017-04-07 14:32:38
 post_excerpt: ""
 layout: page
