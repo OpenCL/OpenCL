@@ -7,4 +7,8 @@ post_excerpt: ""
 layout: page
 permalink: http://opencl.org/blog/
 published: true
+hefo_before:
+  - "1"
+hefo_after:
+  - "1"
 ---
