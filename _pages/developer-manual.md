@@ -1,7 +1,7 @@
 ---
 ID: 37
 post_title: Developer Manual
-author: Vincent Hindriksen
+author: OpenCL.org
 post_date: 2017-04-06 20:31:31
 post_excerpt: ""
 layout: page
