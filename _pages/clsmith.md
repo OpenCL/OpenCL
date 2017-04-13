@@ -1,7 +1,7 @@
 ---
 ID: 60
 post_title: CLSmith
-author: Vincent Hindriksen
+author: OpenCL.org
 post_date: 2017-04-07 21:55:03
 post_excerpt: ""
 layout: page
