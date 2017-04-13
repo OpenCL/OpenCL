@@ -1,7 +1,7 @@
 ---
 ID: 77
 post_title: ARM
-author: Vincent Hindriksen
+author: OpenCL.org
 post_date: 2017-04-07 22:00:37
 post_excerpt: ""
 layout: page
