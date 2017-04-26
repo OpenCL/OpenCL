@@ -14,9 +14,11 @@ hefo_after:
 ---
 There are two ways to submit news. For those who have an important OpenCL library or tool can get an account on the website. All others can submit via the below form.
 
+Categories will be added over time. If you want to make suggestions, add it in the text.
+
 [user-submitted-posts]
 
 Your news will be edited before publishing. Product-promotion is not allowed.
-
-<em>Accounts are currently only allowed for open source groups and universities.
+<h1>Accounts</h1>
+Accounts are currently only allowed for open source groups and universities. <em>
 </em>
