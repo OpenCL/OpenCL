@@ -9,7 +9,7 @@ permalink: >
   http://opencl.org/projects/developer-manual/
 published: true
 ---
-Te man-pages of OpenCL are actually the language specifications and target implementers, not developers.
+The man-pages of OpenCL are actually the language specifications and target implementers, not developers.
 
 This project is to create man-pages for developers, inspired by great websites like cppreference.com.
 
