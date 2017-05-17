@@ -25,4 +25,5 @@ GEGL-OpenCL is an educational initiative that aims to get more developers to stu
 <h1>Contributors</h1>
 <ul>
  	<li>Adel Johar (StreamHPC): setup of framework</li>
+  <li>Anton Gorenko (StreamHPC): noise-hsv, gaussian-blur-selective, motion-blur-linear, diffraction-patterns</li>
 </ul>
