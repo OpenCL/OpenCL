@@ -24,5 +24,5 @@ GEGL-OpenCL is an educational initiative that aims to get more developers to stu
 </ul>
 <h1>Contributors</h1>
 <ul>
- 	<li>Adel Johar (StreamComputing)</li>
+ 	<li>Adel Johar (StreamHPC): setup of framework</li>
 </ul>
