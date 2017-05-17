@@ -15,7 +15,7 @@ hefo_before:
 hefo_after:
   - "0"
 ---
-With StreamHPC's <a href="https://github.com/ex-rzr">Anton</a> porting 4 kernels to OpenCL we've restarted the GEGL porting project!<img class="alignnone wp-image-234 size-large" src="http://opencl.org/wp-content/uploads/2017/05/GEGL_Logo.svg_-1024x343.png" alt="" width="525" height="176" />
+With StreamHPC's <a href="https://github.com/ex-rzr">Anton</a> porting 4 kernels to OpenCL we've restarted the GEGL porting project! Only 64 filters to go.<img class="alignnone wp-image-234 size-large" src="http://opencl.org/wp-content/uploads/2017/05/GEGL_Logo.svg_-1024x343.png" alt="" width="525" height="176" />
 
 We're happy this initiative has been restarted, as it did not get off the ground last year. Biggest change is that it's now fully a community project and labeled "OpenCL.org's GEGL Port"
 
