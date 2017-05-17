@@ -1,14 +1,14 @@
 ---
 ID: 241
 post_title: >
-  OpenCL 2.2 released together with SPIR-V
-  1.2
+  What does the online media say about the
+  new OpenCL 2.2 and SPIR-V 1.2?
 author: Vincent Hindriksen
 post_date: 2017-05-17 13:50:29
 post_excerpt: ""
 layout: post
 permalink: >
-  http://opencl.org/2017/05/17/opencl-2-2-released-together-with-spir-v-1-2/
+  http://opencl.org/2017/05/17/what-does-the-online-media-say-about-the-new-opencl-2-2-and-spir-v-1-2/
 published: true
 hefo_before:
   - "0"
