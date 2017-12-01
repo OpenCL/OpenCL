@@ -13,7 +13,7 @@ This document is a set of guidelines for developers who know OpenCL C and plan t
 
 This text was initially published at <a href="https://github.com/OpenCL/OpenCLCXXPortingGuidelines/blob/master/OpenCLCToOpenCLCppPortingGuidelines.md">https://github.com/OpenCL/OpenCLCXXPortingGuidelines/blob/master/OpenCLCToOpenCLCppPortingGuidelines.md</a>
 
-Comments, suggestions for improvements, and contributions are most welcome.
+Comments, suggestions for improvements, and contributions are most welcome.<!--more-->
 
 <strong><a href="#S-Differences">Differences</a></strong>:
 <ul>
