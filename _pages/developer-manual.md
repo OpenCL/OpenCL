@@ -9,13 +9,7 @@ permalink: >
   http://opencl.org/projects/developer-manual/
 published: true
 ---
-The man-pages of OpenCL are actually the language specifications and target implementers, not developers.
+The man-pages of OpenCL are actually the language specifications and target implementers, not developers. This project is to create man-pages for developers, inspired by great websites like cppreference.com. 
 
-This project is to create man-pages for developers, inspired by great websites like cppreference.com.
-
-Like most projects here, it is fully done on Github.
-<ul>
- 	<li>See the current state: <a href="http://man.opencl.org">http://man.opencl.org</a></li>
- 	<li>Join the effort: <a href="https://github.com/OpenCL/man">https://github.com/OpenCL/man</a></li>
-</ul>
+Update: the project has been migrated to [Khronos](https://registry.khronos.org/OpenCL/sdk/latest/docs/man/html)
 &nbsp;
