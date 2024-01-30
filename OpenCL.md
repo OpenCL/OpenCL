@@ -4,7 +4,7 @@ ToDo: What is OpenCL.org initiative?
 
 ## Acknowledgements
 
-## About [StreamComputing](https://streamcomputing.eu)
+## About [StreamHPC](https://streamhpc.com)
 
 # Table Of Contents
 
@@ -294,7 +294,7 @@ Features:
 ##### Note
 > Intel® SDK for OpenCL™ Application includes Intel OpenCL™ Code Builder which allows you to build (offline), debug, and analyze OpenCL programs.
 
-#### See alo
+#### See also
 
 * [Detailed list of features](https://software.intel.com/en-us/intel-vtune-amplifier-xe/details)
 * [Intel VTune Amplifier XE: Getting started with OpenCL performance analysis on Intel HD Graphics](https://software.intel.com/en-us/articles/intel-vtune-amplifier-xe-getting-started-with-opencl-performance-analysis-on-intel-hd-graphics)

@@ -43,4 +43,4 @@ The web-API is easy to understand and your current code can easily be ported.
 </ul>
 High-end GTX GPUs for large-scale operations in the cloud.
 
-For more details, get in contact with StreamComputing
+For more details, get in contact with StreamHPC
